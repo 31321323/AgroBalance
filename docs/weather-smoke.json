@@ -1,0 +1,7 @@
+{
+  "source": "Open-Meteo",
+  "days": 3,
+  "stale": false,
+  "error": null,
+  "has_eto": true
+}

@@ -1,0 +1,12 @@
+.venv
+.git
+.env
+**/node_modules
+.pnpm-store
+**/__pycache__
+**/.pytest_cache
+frontend/dist
+*.db
+*.db-*
+backups
+artifacts
