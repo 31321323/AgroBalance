@@ -13,6 +13,8 @@ COPY backend/requirements.lock.txt /app/backend/requirements.lock.txt
 RUN pip install --no-cache-dir -r backend/requirements.lock.txt && useradd --create-home agro
 COPY backend/ /app/backend/
 COPY --from=frontend /build/dist /app/frontend/dist/
+RUN mkdir /app/data && chown agro:agro /app/data
 USER agro
+ENV DATABASE_URL=sqlite:////app/data/agrobalance.db
 EXPOSE 8000
 CMD ["sh", "-c", "python -m alembic -c backend/alembic.ini upgrade head && python -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port 8000"]
